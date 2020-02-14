@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'pages.apps.PagesConfig',
     'books.apps.BooksConfig',
+    'orders.apps.OrdersConfig',
 ]
 
 
@@ -181,3 +182,7 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = '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'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+# Stripe
+STRIPE_TEST_PUBLISHABLE_KEY = os.environ.get('STRIPE_TEST_PUBLISHABLE_KEY')
+STRIPE_TEST_SECRET_KEY = os.environ.get('STRIPE_TEST_SECRET_KEY')
