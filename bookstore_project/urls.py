@@ -20,7 +20,7 @@ from django.urls import path, include
 
 urlpatterns = [
     # Django admin
-    path('admin/', admin.site.urls),
+    path('clenx-official/', admin.site.urls),
 
     # User management
     path('accounts/', include('allauth.urls')),
@@ -30,10 +30,14 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('books/', include('books.urls')),
     path('orders/', include('orders.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
 if settings.DEBUG:
     import debug_toolbar
+
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
+
     urlpatterns = [
         path('__debug__/', include(debug_toolbar.urls)),
     ] + urlpatterns
